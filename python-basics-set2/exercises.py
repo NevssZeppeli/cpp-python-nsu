@@ -25,9 +25,12 @@ def prime_number(num):
     Указания:
         - авторское решение занимает 4 строки
     """
-    for x in range(2, int(num**(0.5)) + 1, 1):
-        if (num % x) == 0: return False
-    return True
+    # for x in range(2, int(num**(0.5)) + 1, 1):
+    #     if (num % x) == 0: return False
+    # return True
+    if num < 2: 
+        return False
+    return all(num % x != 0 for x in range(2, int(num**0.5) + 1))
 
 def longest_word(sentence):
     """ Находит самое длинное слово в предложении
@@ -167,9 +170,12 @@ def numbers_sum():
         - используйте оператор in для поиска по строке
         - авторское решение занимает 7 строк
     """
-    nums = input()
-    if nums == '': return 0
-    if ',' not in nums: return int(nums)
-    nums = list(map(int, nums.split(',')))
-    return sum(nums)
-    
+    # nums = input()
+    # if nums == '': 
+    #   return 0
+    # if ',' not in nums: 
+    #   return int(nums)
+    # nums = list(map(int, nums.split(',')))
+    # return sum(nums)
+
+    return sum(map(int, input().split(','))) if input() else 0

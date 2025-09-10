@@ -123,8 +123,10 @@ def income_by_client(records):
     """
     res = {}
     for person, summ in records:
-        if person in res: res[person] += summ
-        else: res[person] = summ
+        if person in res:
+            res[person] += summ
+        else: 
+            res[person] = summ
     return res
 
 def add_prefix(str_list, pref):
