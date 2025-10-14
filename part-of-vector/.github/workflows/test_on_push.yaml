@@ -1,0 +1,11 @@
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: [ubuntu-latest]
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build
+      run: mkdir build && cd build && cmake .. && make
+    - name: Run tests
+      run: cd build && ctest --verbose
